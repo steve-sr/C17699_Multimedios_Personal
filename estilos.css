@@ -1,0 +1,116 @@
+:root {
+  --fondo: #121212;
+  --texto: #ffffff;
+  --resaltado: #e50914;
+  --gris: #b3b3b3;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Segoe UI', sans-serif;
+  background-color: var(--fondo);
+  color: var(--texto);
+  padding-bottom: 60px; /* Espacio para el menú inferior */
+}
+
+header {
+  text-align: center;
+  padding: 15px;
+  background-color: #1e1e1e;
+  font-size: 1.5em;
+  color: var(--resaltado);
+  font-weight: bold;
+}
+
+.categoria {
+  margin: 20px 10px;
+}
+
+.categoria h3 {
+  margin-bottom: 10px;
+  color: var(--gris);
+}
+
+/* Contenedor de las series (horizontal scroll) */
+.series-row {
+  display: flex;
+  gap: 12px;
+  overflow-x: auto;
+  padding-bottom: 10px;
+}
+
+/* Estilo de cada tarjeta de serie */
+.serie-item {
+  min-width: 120px;
+  flex-shrink: 0;
+  text-align: center;
+  color: white;
+}
+
+.serie-item img {
+  border-radius: 6px;
+  width: 120px;
+  height: 180px;
+  object-fit: cover;
+  margin-bottom: 5px;
+}
+
+.serie-item h4 {
+  font-size: 0.9em;
+  font-weight: 600;
+  margin-bottom: 2px;
+  color: #ffffff;
+}
+
+.serie-item p {
+  font-size: 0.75em;
+  color: #bbbbbb;
+}
+
+/* Menú inferior móvil */
+.bottom-menu {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background-color: #1e1e1e;
+  display: flex;
+  justify-content: space-around;
+  padding: 10px 0;
+  border-top: 1px solid #333;
+  z-index: 10;
+}
+
+.bottom-menu a {
+  color: var(--gris);
+  text-decoration: none;
+  font-size: 0.9em;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.bottom-menu a i {
+  font-size: 1.2em;
+  margin-bottom: 4px;
+}
+
+.bottom-menu a:hover {
+  color: var(--resaltado);
+}
+
+/* Responsive para escritorio */
+@media (min-width: 768px) {
+  .series-row {
+    justify-content: flex-start;
+  }
+
+  .bottom-menu {
+    display: none;
+  }
+}
