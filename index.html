@@ -9,6 +9,7 @@
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
     />
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
   </head>
   <body>
     <header class="main-header">
@@ -23,10 +24,10 @@
     </header>
 
     <div class="tipo-selector">
-      <button class="tipo active" data-type="tv" title="Series">
+      <button class="tipo" data-type="tv" title="Series">
         <i class="fas fa-tv"></i> Series
       </button>
-      <button class="tipo" data-type="movie" title="Películas">
+      <button class="tipo active" data-type="movie" title="Películas">
         <i class="fas fa-film"></i> Películas
       </button>
     </div>
@@ -34,31 +35,44 @@
     <main>
       <section class="categoria">
         <h3>Estrenos Recientes</h3>
-        <div class="series-row">
-          <div class="serie-item" data-id="986056" data-type="movie"></div>
-          <div class="serie-item" data-id="822119" data-type="movie"></div>
-          <div class="serie-item" data-id="533535" data-type="movie"></div>
-          <div class="serie-item" data-id="609681" data-type="movie"></div>
-          <div class="serie-item" data-id="447365" data-type="movie"></div>
-          <div class="serie-item" data-id="640146" data-type="movie"></div>
+        <div class="media-row">
+          <div class="media-item" data-id="986056" data-type="movie"></div>
+          <div class="media-item" data-id="822119" data-type="movie"></div>
+          <div class="media-item" data-id="533535" data-type="movie"></div>
+          <div class="media-item" data-id="609681" data-type="movie"></div>
+          <div class="media-item" data-id="447365" data-type="movie"></div>
+          <div class="media-item" data-id="640146" data-type="movie"></div>
         </div>
       </section>
 
       <section class="categoria">
         <h3>Vengadores</h3>
-        <div class="series-row">
-          <div class="serie-item" data-id="24428" data-type="movie"></div>
-          <div class="serie-item" data-id="99861" data-type="movie"></div>
-          <div class="serie-item" data-id="299536" data-type="movie"></div>
-          <div class="serie-item" data-id="299534" data-type="movie"></div>
+        <div class="media-row">
+          <div class="media-item" data-id="24428" data-type="movie"></div>
+          <div class="media-item" data-id="99861" data-type="movie"></div>
+          <div class="media-item" data-id="299536" data-type="movie"></div>
+          <div class="media-item" data-id="299534" data-type="movie"></div>
+        </div>
+      </section>
+
+      <section class="categoria">
+        <h3>Series Recientes</h3>
+        <div class="media-row">
+          <div class="media-item" data-id="202555" data-type="tv"></div>
+          <div class="media-item" data-id="138503" data-type="tv"></div>
+          <div class="media-item" data-id="91363" data-type="tv"></div>
+          <div class="media-item" data-id="138501" data-type="tv"></div>
+          <div class="media-item" data-id="138502" data-type="tv"></div>
+          <div class="media-item" data-id="122226" data-type="tv"></div>
+          <div class="media-item" data-id="84958" data-type="tv"></div>
         </div>
       </section>
 
       <section class="categoria">
         <h3>Spider-Verse</h3>
-        <div class="series-row">
-          <div class="serie-item" data-id="569094" data-type="movie"></div>
-          <div class="serie-item" data-id="324857" data-type="movie"></div>
+        <div class="media-row">
+          <div class="media-item" data-id="569094" data-type="movie"></div>
+          <div class="media-item" data-id="324857" data-type="movie"></div>
         </div>
       </section>
     </main>
@@ -66,7 +80,7 @@
     <!-- Menú inferior -->
     <nav class="bottom-menu">
       <a href="#"><i class="fas fa-home"></i><span>Inicio</span></a>
-      <a href="#"><i class="fas fa-search"></i><span>Buscar</span></a>
+      <a href="#"><i class="fas fa-compass"></i><span>Explorar</span></a>
       <a href="#"><i class="fas fa-star"></i><span>Favoritos</span></a>
       <a href="#"><i class="fas fa-user"></i><span>Perfil</span></a>
     </nav>
@@ -74,7 +88,7 @@
     <script>
       const apiKey = "004c7616c5862f8c4a3a317fb1e1a723";
 
-      document.querySelectorAll(".serie-item").forEach((div) => {
+      document.querySelectorAll(".media-item").forEach((div) => {
         const id = div.getAttribute("data-id");
         const tipo = div.getAttribute("data-type") || "tv"; // por defecto 'tv'
 
