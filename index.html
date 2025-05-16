@@ -19,7 +19,7 @@
           id="searchInput"
           placeholder="Buscar series o películas..."
         />
-        <button><i class="fas fa-search"></i></button>
+        <button id="searchBtn"><i class="fas fa-search"></i></button>
       </div>
     </header>
 
@@ -27,13 +27,13 @@
       <button class="tipo" data-type="tv" title="Series">
         <i class="fas fa-tv"></i> Series
       </button>
-      <button class="tipo active" data-type="movie" title="Películas">
+      <button class="tipo" data-type="movie" title="Películas">
         <i class="fas fa-film"></i> Películas
       </button>
     </div>
 
-    <main>
-      <section class="categoria">
+    <main id="mainContent">
+      <section class="categoria" data-type="movie">
         <h3>Estrenos Recientes</h3>
         <div class="media-row">
           <div class="media-item" data-id="986056" data-type="movie"></div>
@@ -45,7 +45,7 @@
         </div>
       </section>
 
-      <section class="categoria">
+      <section class="categoria" data-type="movie">
         <h3>Vengadores</h3>
         <div class="media-row">
           <div class="media-item" data-id="24428" data-type="movie"></div>
@@ -55,7 +55,7 @@
         </div>
       </section>
 
-      <section class="categoria">
+      <section class="categoria" data-type="tv">
         <h3>Series Recientes</h3>
         <div class="media-row">
           <div class="media-item" data-id="202555" data-type="tv"></div>
@@ -68,12 +68,17 @@
         </div>
       </section>
 
-      <section class="categoria">
+      <section class="categoria" data-type="movie">
         <h3>Spider-Verse</h3>
         <div class="media-row">
           <div class="media-item" data-id="569094" data-type="movie"></div>
           <div class="media-item" data-id="324857" data-type="movie"></div>
         </div>
+      </section>
+
+      <section id="searchResults" style="display: none">
+        <h3>Resultados de Búsqueda</h3>
+        <div class="media-row" id="resultsContainer"></div>
       </section>
     </main>
 
@@ -85,38 +90,6 @@
       <a href="#"><i class="fas fa-user"></i><span>Perfil</span></a>
     </nav>
 
-    <script>
-      const apiKey = "004c7616c5862f8c4a3a317fb1e1a723";
-
-      document.querySelectorAll(".media-item").forEach((div) => {
-        const id = div.getAttribute("data-id");
-        const tipo = div.getAttribute("data-type") || "tv"; // por defecto 'tv'
-
-        const baseUrl = `https://api.themoviedb.org/3/${tipo}/${id}`;
-
-        fetch(`${baseUrl}?api_key=${apiKey}&language=es-ES`)
-          .then((res) => res.json())
-          .then((data) => {
-            const poster = `https://image.tmdb.org/t/p/w300${data.poster_path}`;
-            const titulo = tipo === "movie" ? data.title : data.name;
-            const año =
-              (tipo === "movie"
-                ? data.release_date
-                : data.first_air_date
-              )?.slice(0, 4) || "Año no disponible";
-
-            div.innerHTML = `
-          <div class="puntuacion">${data.vote_average.toFixed(1)}</div>
-          <img src="${poster}" alt="${titulo}" />
-          <h4>${titulo}</h4>
-          <p>${año}</p>
-        `;
-          })
-          .catch((err) => {
-            div.innerHTML = "<p>Error al cargar contenido</p>";
-            console.error("Error TMDB:", err);
-          });
-      });
-    </script>
+    <script src="script.js"></script>
   </body>
 </html>
