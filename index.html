@@ -16,80 +16,84 @@
       <div class="buscador">
         <input
           type="text"
-          id="searchInput"
           placeholder="Buscar series o películas..."
+          disabled
         />
-        <button id="searchBtn"><i class="fas fa-search"></i></button>
+        <button disabled><i class="fas fa-search"></i></button>
       </div>
     </header>
 
     <div class="tipo-selector">
-      <button class="tipo" data-type="tv" title="Series">
+      <button class="tipo" title="Series" disabled>
         <i class="fas fa-tv"></i> Series
       </button>
-      <button class="tipo" data-type="movie" title="Películas">
+      <button class="tipo" title="Películas" disabled>
         <i class="fas fa-film"></i> Películas
       </button>
     </div>
 
     <main id="mainContent">
-      <section class="categoria" data-type="movie">
+      <section class="categoria">
         <h3>Estrenos Recientes</h3>
         <div class="media-row">
-          <div class="media-item" data-id="986056" data-type="movie"></div>
-          <div class="media-item" data-id="822119" data-type="movie"></div>
-          <div class="media-item" data-id="533535" data-type="movie"></div>
-          <div class="media-item" data-id="609681" data-type="movie"></div>
-          <div class="media-item" data-id="447365" data-type="movie"></div>
-          <div class="media-item" data-id="640146" data-type="movie"></div>
+          <div class="media-item">
+            <div class="puntuacion">8.5</div>
+            <img src="ruta/imagen1.jpg" alt="Título de película o serie" />
+            <h4>Título de la película</h4>
+            <p>2024</p>
+          </div>
+          <div class="media-item">
+            <div class="puntuacion">7.9</div>
+            <img src="ruta/imagen2.jpg" alt="Título de película o serie" />
+            <h4>Otra Película</h4>
+            <p>2023</p>
+          </div>
+          <!-- Puedes duplicar este bloque para más elementos -->
         </div>
       </section>
 
-      <section class="categoria" data-type="movie">
+      <section class="categoria">
         <h3>Vengadores</h3>
         <div class="media-row">
-          <div class="media-item" data-id="24428" data-type="movie"></div>
-          <div class="media-item" data-id="99861" data-type="movie"></div>
-          <div class="media-item" data-id="299536" data-type="movie"></div>
-          <div class="media-item" data-id="299534" data-type="movie"></div>
+          <div class="media-item">
+            <div class="puntuacion">9.0</div>
+            <img src="ruta/imagen3.jpg" alt="Avengers" />
+            <h4>Avengers</h4>
+            <p>2012</p>
+          </div>
         </div>
       </section>
 
-      <section class="categoria" data-type="tv">
+      <section class="categoria">
         <h3>Series Recientes</h3>
         <div class="media-row">
-          <div class="media-item" data-id="202555" data-type="tv"></div>
-          <div class="media-item" data-id="138503" data-type="tv"></div>
-          <div class="media-item" data-id="91363" data-type="tv"></div>
-          <div class="media-item" data-id="138501" data-type="tv"></div>
-          <div class="media-item" data-id="138502" data-type="tv"></div>
-          <div class="media-item" data-id="122226" data-type="tv"></div>
-          <div class="media-item" data-id="84958" data-type="tv"></div>
+          <div class="media-item">
+            <div class="puntuacion">8.3</div>
+            <img src="ruta/imagen4.jpg" alt="Nombre de serie" />
+            <h4>Nombre de serie</h4>
+            <p>2024</p>
+          </div>
         </div>
       </section>
 
-      <section class="categoria" data-type="movie">
+      <section class="categoria">
         <h3>Spider-Verse</h3>
         <div class="media-row">
-          <div class="media-item" data-id="569094" data-type="movie"></div>
-          <div class="media-item" data-id="324857" data-type="movie"></div>
+          <div class="media-item">
+            <div class="puntuacion">8.7</div>
+            <img src="ruta/imagen5.jpg" alt="Spider-Man: Into the Spider-Verse" />
+            <h4>Spider-Verse</h4>
+            <p>2018</p>
+          </div>
         </div>
-      </section>
-
-      <section id="searchResults" style="display: none">
-        <h3>Resultados de Búsqueda</h3>
-        <div class="media-row" id="resultsContainer"></div>
       </section>
     </main>
 
-    <!-- Menú inferior -->
     <nav class="bottom-menu">
       <a href="#"><i class="fas fa-home"></i><span>Inicio</span></a>
       <a href="#"><i class="fas fa-compass"></i><span>Explorar</span></a>
       <a href="#"><i class="fas fa-star"></i><span>Favoritos</span></a>
       <a href="#"><i class="fas fa-user"></i><span>Perfil</span></a>
     </nav>
-
-    <script src="script.js"></script>
   </body>
 </html>
